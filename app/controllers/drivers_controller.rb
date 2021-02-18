@@ -15,6 +15,11 @@ class DriversController < ApplicationController
     end
   end
 
+  def destroy
+    driver = Driver.find(params[:id]).destroy!
+    head :no_content
+  end
+
   private
 
   def driver_params
