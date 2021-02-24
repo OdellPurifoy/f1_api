@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,15 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_203_234_145) do
-  create_table 'drivers', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.string 'team'
-    t.integer 'wins'
-    t.integer 'seasons'
-    t.integer 'titles'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2021_02_24_234739) do
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "wins"
+    t.integer "seasons"
+    t.integer "titles"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_drivers_on_team_id"
   end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "team_name"
+    t.string "title_sponsor"
+    t.string "manufacturer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end
