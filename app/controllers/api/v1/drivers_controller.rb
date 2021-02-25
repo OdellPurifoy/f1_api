@@ -4,7 +4,8 @@ module Api
   module V1
     class DriversController < ApplicationController
       def index
-        render json: Driver.all
+        drivers = Driver.all
+        render json: DriversRepresenter.new(drivers).as_json
       end
 
       def create
