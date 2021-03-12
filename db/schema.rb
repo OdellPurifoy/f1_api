@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_234739) do
+ActiveRecord::Schema.define(version: 2021_03_12_002433) do
 
   create_table "drivers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "wins"
-    t.integer "seasons"
-    t.integer "titles"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.integer "wins", null: false
+    t.integer "seasons", null: false
+    t.integer "titles", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "team_id"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2021_02_24_234739) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "team_name"
-    t.string "title_sponsor"
-    t.string "manufacturer"
+    t.string "team_name", null: false
+    t.string "title_sponsor", null: false
+    t.string "manufacturer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
